@@ -1,0 +1,28 @@
+{
+  "name": "my-first-project",
+  "version": "1.0.0",
+  "description": "my-first-project for NODE.js and React",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parkjineon/my-first-project.git"
+  },
+  "keywords": [
+    "NODE.js",
+    "REACT"
+  ],
+  "author": "Jineon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parkjineon/my-first-project/issues"
+  },
+  "homepage": "https://github.com/parkjineon/my-first-project#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.5.3"
+  }
+}
