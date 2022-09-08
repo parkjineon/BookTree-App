@@ -1,19 +1,4 @@
-#navUL {
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-}
 
-.navLi{
-  text-decoration: none;
-  color: black;
-}
-
-nav{
-  border-bottom: 0.1rem solid black;
-}
 
 
 

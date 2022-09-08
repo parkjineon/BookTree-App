@@ -1,4 +1,5 @@
 import React from 'react'
+import auth from '../../../hoc/auth'
 
 function LandingPage() {
 
@@ -8,4 +9,4 @@ function LandingPage() {
   )
 }
 
-export default LandingPage
+export default auth(LandingPage, null)
