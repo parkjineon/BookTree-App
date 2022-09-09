@@ -10,6 +10,8 @@ import './App.css';
 import LandingPage from './Views/LandingPage/LandingPage';
 import LoginPage from './Views/LoginPage/LoginPage';
 import RegisterPage from './Views/RegisterPage/RegisterPage';
+import BookPage from "./Views/BookPage/BookPage";
+import MoviePage from "./Views/MoviePage/MoviePage";
 
 export default function App() {
   return (
@@ -17,9 +19,11 @@ export default function App() {
       <div>
         <Nav/>
         <Routes>
-          <Route exact path="/" element={<LandingPage/>}/>
-          <Route path="/login" element={<LoginPage />}/>
-          <Route path="/register" element={<RegisterPage />}/>
+          <Route className='page' exact path="/" element={<LandingPage/>}/>
+          <Route className='page' path="/login" element={<LoginPage />}/>
+          <Route className='page' path="/register" element={<RegisterPage />}/>
+          <Route className='page' path="/book" element={<BookPage />}/>
+          <Route className='page' path="/movie" element={<MoviePage />}/>
         </Routes>
       </div>
     </Router>

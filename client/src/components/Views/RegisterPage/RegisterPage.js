@@ -76,7 +76,7 @@ function RegisterPage(props) {
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
-      height: '100vh'
+      height: '93vh'
     }}>
       <form style={{display:"flex", flexDirection: "column" }} onSubmit={onSubmitHandler} >
         <label>Email</label>
