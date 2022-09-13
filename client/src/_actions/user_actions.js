@@ -10,6 +10,7 @@ export function loginUser(dataToSubmit){
     const request = axios.post('/api/users/login',dataToSubmit)
         .then(response => response.data)
         .catch(err => {
+            console.log('여기 에러')
             console.log(err)
             let payload = {
                 loginSuccess: false,

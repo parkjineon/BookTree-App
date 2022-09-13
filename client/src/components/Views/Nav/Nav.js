@@ -34,7 +34,7 @@ function Nav() {
                 dispatch(logoutUser())
                 .then(response => {
                         if(response.payload.logoutSuccess){
-                            navigate('/');
+                            navigate('/login');
                             setbtnText('log in')
                             setvisible(true);
                         } else {

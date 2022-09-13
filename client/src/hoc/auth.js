@@ -3,7 +3,7 @@ import { auth } from '../_actions/user_actions';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 
-
+// eslint-disable-next-line 
 export default function (SpecificComponent, option, adminRoute = null){
     //adminRoute는 관리자만 허용
     //option
@@ -26,7 +26,7 @@ export default function (SpecificComponent, option, adminRoute = null){
                     if(adminRoute&&!response.payload.isAdmin){
                         navigate('/');
                     }else{
-                        if(!option){
+                        if(option===false){
                             navigate('/');
                         }
                     }
