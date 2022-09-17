@@ -1,20 +1,32 @@
+/* tree */
 .LandingPage {
     height: 93vh;
     background: url(../../../img/homePage.png) no-repeat center;
     background-size: 650px 650px;
+    min-width: 650px;
+    min-height: 650px;
     background-color: rgb(255, 248, 243);
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     display:flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
 }
 
+.tree{
+    width: 580px;
+    height: 600px;
+    border-top-left-radius: 290px;
+    border-top-right-radius: 290px;
+    position: absolute;
+}
+
+/* flower and leaves */
 .flower{
     background: url(../../../img/flower.png) no-repeat center;
     background-size: contain;
     position: absolute;
-    transition: all 0.2s ;
     cursor: pointer;
+    transition: all 0.2s;;
 }
 
 .flower:hover{
@@ -22,6 +34,7 @@
     -ms-transform: scale(1.5);
     -webkit-transform: scale(1.5);
 }
+
 
 .apple{
     background: url(../../../img/apple.png) no-repeat center;
@@ -43,6 +56,7 @@
     position: absolute;
 }
 
+
 .leaf2{
     background: url(../../../img/leaf2.png) no-repeat center;
     background-size: contain;
@@ -55,10 +69,4 @@
     position: absolute;
 }
 
-.tree{
-    width: 580px;
-    height: 600px;
-    border-top-left-radius: 290px;
-    border-top-right-radius: 290px;
-    position: absolute;
-}
+/* fallingLeaves */

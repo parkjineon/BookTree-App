@@ -38,3 +38,14 @@
     grid-auto-rows: 195px;
     justify-items: stretch;
 }
+
+/*Detail*/
+.detailPage{
+    min-width: 500px;
+}
+
+.detailInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

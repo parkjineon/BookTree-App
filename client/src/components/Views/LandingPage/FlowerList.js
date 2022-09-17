@@ -8,8 +8,8 @@ function FlowerList() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function onClickFlowerHandler(bookID){
-    navigate(`/books/${bookID}`)
+  function onClickFlowerHandler(bookId){
+    navigate(`/book/${bookId}`)
   }
 
   //난수 생성
@@ -26,16 +26,16 @@ function FlowerList() {
 
     if(num===1||num===2||num===3){
       STH.style.left = Math.random() * 590 - 20 + 'px';
-      STH.style.top = 310+Math.random() * 100+ 'px';
+      STH.style.top = 335+Math.random() * 100+ 'px';
     }else if(num===4||num===5||num===6){
       STH.style.left = 5 + Math.random() * 545 + 'px';
-      STH.style.top = 200+Math.random() * 100+ 'px';
+      STH.style.top = 225+Math.random() * 100+ 'px';
     }else if(num===7||num===8||num===9){
       STH.style.left = 50+Math.random() * 450 + 'px';
-      STH.style.top = 100+Math.random() * 100+ 'px';
+      STH.style.top = 125+Math.random() * 100+ 'px';
     }else{
       STH.style.left = 150+Math.random() * 250 + 'px';
-      STH.style.top = 15+Math.random() * 90+ 'px';
+      STH.style.top = 40+Math.random() * 90+ 'px';
     }
     
   }
@@ -98,6 +98,7 @@ function FlowerList() {
         alert(response.payload.message)
       }
     })
+    
 // eslint-disable-next-line 
   },[])
 

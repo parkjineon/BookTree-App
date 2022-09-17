@@ -36,6 +36,18 @@ router.get('/collect',(req,res)=>{
 
 })
 
+router.get('/:bookId',(req,res)=>{
+    Book.findOne({_id : req.params.bookId},(err, info)=>{
+        if(err){
+            return res.status(400).send(err);
+        }
+        return res.status(200).json({
+            getInfoSuccess:true, 
+            info: info
+        })
+    })
+})
+
 
 
 module.exports = router;

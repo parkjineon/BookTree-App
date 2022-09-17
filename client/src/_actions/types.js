@@ -6,3 +6,4 @@ export const AUTH = 'auth';
 
 //book
 export const COLLECT_BOOK = 'collect_book';
+export const GET_INFO = 'get_info'

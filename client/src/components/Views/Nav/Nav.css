@@ -5,13 +5,16 @@
 }
 
 nav{
+    background-color: rgb(255, 248, 243);
     padding: 0 1rem;
     min-height: 35px;
+    min-width: 650px;
     height: 7vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     list-style: none;
+    z-index: 1000;
 }
 
 #btnZone{
@@ -22,4 +25,8 @@ nav{
 
 .btn{
     padding: 0 2rem;
+}
+
+.userName{
+    padding: 0 10px;
 }

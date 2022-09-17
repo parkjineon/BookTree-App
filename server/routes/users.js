@@ -68,7 +68,7 @@ router.get('/logout', auth, (req,res)=>{
     User.findOneAndUpdate({_id: req.user._id},{token: ""},(err, user)=>{
         if(err) return res.status(400).send(err);
         res.cookie('x_auth','')
-        return res.status(200).json({logoutSuccess: true})
+        return res.status(200).json({logoutSuccess: true, user: user})
     })
 })
 

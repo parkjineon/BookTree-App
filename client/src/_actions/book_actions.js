@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {
-    COLLECT_BOOK
+    COLLECT_BOOK,
+    GET_INFO
 } from './types'
 
 export function collectBook(){
@@ -16,6 +17,24 @@ export function collectBook(){
     })
     return{
         type: COLLECT_BOOK,
+        payload: request
+    }
+}
+
+export function getInfo(Id){
+
+    const request = axios.get(`/api/books/${Id}`)
+    .then(response => response.data)
+    .catch(err => { 
+        console.log(err)
+        let payload = {
+            getInfoSuccess: false,
+            message: 'get Info 에러 발생'
+        }
+        return payload;
+    })
+    return{
+        type: GET_INFO,
         payload: request
     }
 }
