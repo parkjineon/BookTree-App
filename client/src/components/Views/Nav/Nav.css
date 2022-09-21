@@ -5,7 +5,7 @@
 }
 
 nav{
-    background-color: rgb(255, 248, 243);
+    background-color: rgb(245, 252, 249);
     padding: 0 1rem;
     min-height: 35px;
     min-width: 650px;
@@ -15,6 +15,7 @@ nav{
     align-items: center;
     list-style: none;
     z-index: 1000;
+    font-family: "KyoboHandwriting2020A";
 }
 
 #btnZone{

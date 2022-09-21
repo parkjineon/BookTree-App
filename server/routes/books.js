@@ -48,6 +48,15 @@ router.get('/:bookId',(req,res)=>{
     })
 })
 
-
+router.post('/:bookId/edit', (req,res)=>{
+    Book.findOneAndUpdate({ _id : req.params.bookId},req.body,(err)=>{
+        if(err){
+            return res.status(400).send(err);
+        }
+        return res.status(200).json({
+            editInfoSuccess:true
+        })
+    })
+})
 
 module.exports = router;

@@ -1,7 +1,8 @@
 import axios from 'axios'
 import {
     COLLECT_BOOK,
-    GET_INFO
+    GET_INFO,
+    EDIT_INFO
 } from './types'
 
 export function collectBook(){
@@ -35,6 +36,25 @@ export function getInfo(Id){
     })
     return{
         type: GET_INFO,
+        payload: request
+    }
+}
+
+export function editInfo(Id,dataToSubmit){
+
+    const request = axios.post(`/api/books/${Id}/edit`,dataToSubmit)
+    .then(response => response.data)
+    .catch(err => { 
+
+        let payload = {
+            editInfoSuccess: false,
+            message: 'edit Info 에러 발생'
+        }
+        return payload;
+    })
+
+    return{
+        type: EDIT_INFO,
         payload: request
     }
 }

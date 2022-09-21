@@ -5,7 +5,7 @@
     background-size: 650px 650px;
     min-width: 650px;
     min-height: 650px;
-    background-color: rgb(255, 248, 243);
+    background-color: rgb(245, 252, 249);
     /* background-attachment: fixed; */
     display:flex;
     align-items: center;
@@ -70,3 +70,83 @@
 }
 
 /* fallingLeaves */
+.falling1{
+    background: url(../../../img/leaf1.png) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.6;
+
+    /* animation-name: falling;
+    animation-duration:5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-name: falling;
+    -webkit-animation-duration:5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: forwards; */
+}
+
+.falling2{
+    background: url(../../../img/leaf2.png) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.6;
+
+    /* animation-name: falling;
+    animation-duration:5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-name: falling;
+    -webkit-animation-duration:5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: forwards; */
+}
+/* 
+.falling3{
+    background: url(../../../img/leaf3.png) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.3;
+
+    animation-name: falling;
+    animation-duration:5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-name: falling;
+    -webkit-animation-duration:5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: forwards;
+} */
+
+/* @keyframes falling {
+    0% {
+      top: 0vh;
+    }
+    100% {
+      top: 90vh;
+    }
+  }
+
+@-webkit-keyframes falling {
+    0% {
+        left:200px;
+    }
+    100% {
+        left:500px;
+    }
+} */

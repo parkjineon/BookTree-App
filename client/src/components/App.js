@@ -12,7 +12,8 @@ import LoginPage from './Views/LoginPage/LoginPage';
 import RegisterPage from './Views/RegisterPage/RegisterPage';
 import BookPage from "./Views/BookPage/BookPage";
 import MoviePage from "./Views/MoviePage/MoviePage";
-import Detail from "./Views/BookPage/Detail";
+import Detail from "./Views/BookPage/Detail"
+import EditPage from "./Views/BookPage/EditPage";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
           <Route className='page' path="/book" element={<BookPage />}/>
           <Route className='page' path="/movie" element={<MoviePage />}/>
           <Route className='page' path="/book/:bookId" element={<Detail/>}/>
+          <Route className='page' path="/book/:bookId/edit" element={<EditPage/>}/>
         </Routes>
       </div>
     </Router>
