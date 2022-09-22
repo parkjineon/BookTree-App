@@ -7,6 +7,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Descriptions, Rate } from 'antd';
 import bookImg from '../../img/poster.jpg'
+import { ko } from "date-fns/esm/locale";
+
 
 function EditPage() {
     const {bookId} = useParams()
@@ -14,7 +16,7 @@ function EditPage() {
     const [author,setAuthor] = useState('')
     const [publisher,setPublisher] = useState('')
     const [status, setStatus] = useState()
-    const [startDate, setStartDate] = useState(new Date())
+    const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
     const [review,setReview] = useState()
     const [rate, setRate] = useState()
@@ -57,25 +59,23 @@ function EditPage() {
     }
 
     useEffect(()=>{
-
       dispatch(getInfo(bookId))
       .then(response => {
         setTitle(response.payload.info.title);
         setAuthor(response.payload.info.author);
         setPublisher(response.payload.info.publisher);
         setStatus(response.payload.info.status.toString());
-        // setStartDate((response.payload.info.startDate));
-        setEndDate((response.payload.info.endDate).toString().split('T')[0]);
+        setStartDate(new Date(response.payload.info.startDate))
+        setEndDate(new Date(response.payload.info.endDate));
         setReview(response.payload.info.review);
         setRate(parseInt(response.payload.info.rate));
-
       })
 // eslint-disable-next-line 
     },[])
 
   return (
     <div className='detailPage'>
-    <div className='detailTitle'><input type='text' name='bookAuthor' style={{'width':'100%', 'textAlign' : 'center'}} defaultValue={title} onChange={onTitleHandler}/></div>
+    <div className='detailTitle'><input type='text' name='bookTitle' style={{'width': 'auto', 'textAlign' : 'center'}} defaultValue={title} onChange={onTitleHandler}/></div>
     <Rate onChange={setRate} value={rate}/>
     <div className='detailBody'>
       <div className='detailBtnZone'><button className='detailBtn' onClick={onSaveHandler}>저장</button></div>
@@ -106,8 +106,8 @@ function EditPage() {
               <input id="1" value="1" name="status" type="radio" checked = {status === '1'} style={{'fontSize': '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}> 읽는 중</label>
               <input id="2" value="2" name="status" type="radio" checked = {status === '2'} style={{'fontSize': '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}> 읽을 예정</label>
             </Descriptions.Item>
-            <Descriptions.Item label="시작 날짜" span={1}><DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /></Descriptions.Item>
-            <Descriptions.Item label="끝 날짜" span={1}>{endDate}</Descriptions.Item>
+            <Descriptions.Item label="시작 날짜" span={1}><DatePicker locale={ko} dateFormat="yyyy-MM-dd" selected= {startDate} onChange={(date) => setStartDate(date)} /></Descriptions.Item>
+            <Descriptions.Item label="끝 날짜" span={1}><DatePicker locale={ko} dateFormat="yyyy-MM-dd" selected= {endDate} onChange={(date) => setEndDate(date)} /></Descriptions.Item>
             <Descriptions.Item label="소감문" span={2}><textarea name='bookReview' style={{'width':'100%', 'maxHeight' : '200px'}} defaultValue={review} onChange={onReviewHandler}/></Descriptions.Item>
           </Descriptions>
         </div>
