@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Descriptions, Rate } from 'antd';
 import bookImg from '../../img/poster.jpg'
 import { ko } from "date-fns/esm/locale";
-
+import auth from "../../../hoc/auth"
 
 function EditPage() {
     const {bookId} = useParams()
@@ -69,7 +69,9 @@ function EditPage() {
         setEndDate(new Date(response.payload.info.endDate));
         setReview(response.payload.info.review);
         setRate(parseInt(response.payload.info.rate));
+
       })
+
 // eslint-disable-next-line 
     },[])
 
@@ -108,7 +110,7 @@ function EditPage() {
             </Descriptions.Item>
             <Descriptions.Item label="시작 날짜" span={1}><DatePicker locale={ko} dateFormat="yyyy-MM-dd" selected= {startDate} onChange={(date) => setStartDate(date)} /></Descriptions.Item>
             <Descriptions.Item label="끝 날짜" span={1}><DatePicker locale={ko} dateFormat="yyyy-MM-dd" selected= {endDate} onChange={(date) => setEndDate(date)} /></Descriptions.Item>
-            <Descriptions.Item label="소감문" span={2}><textarea name='bookReview' style={{'width':'100%', 'maxHeight' : '200px'}} defaultValue={review} onChange={onReviewHandler}/></Descriptions.Item>
+            <Descriptions.Item label="소감문" span={2} labelStyle={{ "alignItems" : "center", "justifyContent" : "center"}}><textarea name='bookReview' style={{'width':'100%', 'maxHeight' : '200px'}} defaultValue={review} onChange={onReviewHandler}/></Descriptions.Item>
           </Descriptions>
         </div>
       </div>
@@ -118,4 +120,4 @@ function EditPage() {
   )
 }
 
-export default EditPage
+export default auth(EditPage)

@@ -31,3 +31,9 @@ nav{
 .userName{
     padding: 0 10px;
 }
+
+.home{
+    background: url(../../img/flower2.png) no-repeat center;
+    background-size: cover;
+    position: absolute;
+}

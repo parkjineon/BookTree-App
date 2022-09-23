@@ -45,6 +45,9 @@
 }
 
 .apple:hover{
+    background: url(../../../img/applehover.png) no-repeat center;
+    background-size: contain;
+    position: absolute;
     transform: scale(1.5);
     -ms-transform: scale(1.5);
     -webkit-transform: scale(1.5);
@@ -150,3 +153,21 @@
         left:500px;
     }
 } */
+
+.readingBoy{
+    background: url(../../../img/reading.png) no-repeat center;
+    background-size: contain;
+    position: relative;
+    top: 233px;
+    left: 75px;
+    width: 130px;
+    height: 130px;
+    transition: all 0.2s ;
+    cursor: pointer;
+}
+
+.readingBoy:hover{
+    transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+}

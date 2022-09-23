@@ -10,6 +10,7 @@ function LandingPage() {
     <div className='LandingPage'>
       <LeavesFalling/>
       <FlowerList />
+      <div className='readingBoy'></div> 
     </div>
   )
 }

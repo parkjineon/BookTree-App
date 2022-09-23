@@ -76,14 +76,14 @@ function Detail() {
               'fontSize' : "20px",
               'background' : "rgb(222, 239, 185)",
               'width': 'auto',
-              "border-radius": '15px',
+              "borderRadius": '15px',
               "textAlign" : "center",
               "justifyContent" : "center",
               "padding" : "0 0 0 12px",
               "margin" : "8px 0"
             }} contentStyle = {{
               'fontSize' : "18px",
-              'min-height' : '10px',
+              'minHeight' : '10px',
               "padding" : '0 15px',
               'border' : 'none',
               "margin" : "8px 0"
@@ -97,7 +97,7 @@ function Detail() {
               </Descriptions.Item>
               <Descriptions.Item label="시작 날짜" span={1}>{startDate}</Descriptions.Item>
               <Descriptions.Item label="끝 날짜" span={1}>{endDate}</Descriptions.Item>
-              <Descriptions.Item label="소감문" span={2}>{review}</Descriptions.Item>
+              <Descriptions.Item labelStyle={{ "alignItems" : "center", "justifyContent" : "center"}} contentStyle={{"white-space":"pre"}} label="소감문" span={2}>{review}</Descriptions.Item>
             </Descriptions>
           </div>
         </div>
