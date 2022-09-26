@@ -2,7 +2,8 @@ import axios from 'axios'
 import {
     COLLECT_BOOK,
     GET_INFO,
-    EDIT_INFO
+    EDIT_INFO,
+    REGISTER_BOOK
 } from './types'
 
 export function collectBook(){
@@ -55,6 +56,25 @@ export function editInfo(Id,dataToSubmit){
 
     return{
         type: EDIT_INFO,
+        payload: request
+    }
+}
+
+export function registerBook(dataToSubmit){
+
+    const request = axios.post('/api/books/register',dataToSubmit)
+    .then(response => response.data)
+    .catch(err => { 
+
+        let payload = {
+            registerBookSuccess: false,
+            message: 'register book 에러 발생'
+        }
+        return payload;
+    })
+
+    return{
+        type: REGISTER_BOOK,
         payload: request
     }
 }
