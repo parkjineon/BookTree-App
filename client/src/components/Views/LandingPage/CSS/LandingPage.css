@@ -3,7 +3,7 @@
     height: 93vh;
     background: url(../../../img/homePage.png) no-repeat center;
     background-size: 650px 650px;
-    min-width: 650px;
+    min-width: 1100px;
     min-height: 650px;
     background-color: rgb(245, 252, 249);
     /* background-attachment: fixed; */

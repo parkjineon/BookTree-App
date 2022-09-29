@@ -1,0 +1,28 @@
+.logPagebutton{
+    background-color: rgb(245, 252, 249);
+    width: 100px;
+    padding: 2px 0;
+    margin: 0 50px;
+    border-radius: 50px;
+    color: green;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    border: 2px solid green;
+    font-size: 20px;
+    transition-duration: 0.2s;
+}
+
+.logPagebutton:hover{
+    background-color: green;
+    color: white;
+    opacity: 70%;
+}
+
+.logPagelabel{
+    font-size: 20px;
+}
+
+.logPageinput{
+    font-size: 18px;
+    border: 1px solid black;
+}

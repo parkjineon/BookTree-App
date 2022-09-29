@@ -1,16 +1,16 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import './CSS/Detail.css'
+import '../CSS/Detail.css'
 import { useDispatch } from 'react-redux'
-import { registerBook} from '../../../_actions/book_actions'
+import { registerBook} from '../../../../_actions/book_actions'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Descriptions, Rate } from 'antd';
-import bookImg from '../../img/poster.jpg'
+import bookImg from '../../../img/poster.jpg'
 import { ko } from "date-fns/esm/locale";
-import auth from "../../../hoc/auth"
+import auth from "../../../../hoc/auth"
 
-function RegisterPage() {
+function BookRegisterPage() {
     const [title,setTitle] = useState('')
     const [author,setAuthor] = useState('')
     const [publisher,setPublisher] = useState('')
@@ -102,4 +102,4 @@ function RegisterPage() {
   </div>
 )}
 
-export default auth(RegisterPage,true)
+export default auth(BookRegisterPage,true)

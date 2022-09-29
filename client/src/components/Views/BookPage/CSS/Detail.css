@@ -1,25 +1,49 @@
-.background{     
+/* bookPage */
+.bookPage{
     display: flex;
-    flex-direction: column; 
-    min-height: 53vh;
-    min-width: 195px;
-    width: 50%;
-    background: rgb(254, 246, 236);
-    border: 0.1rem solid rgb(179, 126, 58);
+    flex-direction: column;
+    min-width: 1100px;
+    width: 100%;
+    min-height: 93vh;
+    background-color: rgb(245, 252, 249);
+    font-family: "KyoboHandwriting2020A";
 }
 
-.miniNav{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.bookShelfPage{
+    padding: 30px 0 0 0;
+    width: 100%;
+    min-height: 300px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    place-items: center;
 }
 
-.miniTitle{
-    margin-left:50px;
+.bookShelf{
+    background: url(../../../img/bookShelf.png) no-repeat center;
+    background-size: contain;
+    width: 500px;
+    height: 135px;
+
 }
 
-.miniButton{
+.bookList{
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.ABook{
+    border: 1px solid black;
+    width: 200px;
+    height: 260px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+
+/* .miniButton{
     position: right;
     width: 50px;
     font-size: 1px;
@@ -29,22 +53,23 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-}
+} */
 
 
-.gridContainer{
+/* .gridContainer{
     display: grid;
     grid-template-columns: repeat(auto-fill,150px);
     grid-auto-rows: 195px;
     justify-items: stretch;
-}
+} */
 
 /*Detail*/
 .detailPage{
     font-family: "KyoboHandwriting2020A";
     background-color: rgb(246, 255, 248);
     /* background-color: rgb(245, 250, 251); */
-    min-width: 650px;
+    padding: 30px 0;
+    min-width: 1100px;
     min-height: 93vh;
     display: flex;
     flex-direction: column;
@@ -73,6 +98,12 @@
     border: none;
     cursor: pointer;
     margin: 0 50px;
+    transition-duration: 0.1s;
+}
+
+.detailBtn:hover{
+    font-size: 16px;
+    color: green;
 }
 
 .bookImage{

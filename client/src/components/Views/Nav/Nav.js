@@ -7,7 +7,6 @@ import {
 } from '../../../_actions/user_actions';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
-import { Button } from 'antd';
 
 function Nav() {
     const dispatch = useDispatch();
@@ -59,7 +58,7 @@ function Nav() {
             <div id="btnZone">
                 {visible && (<Link className="navLi btn" to='/register'>Register</Link>)}
                 {!visible && (<div className='userName'>{userName}님</div>)}
-                <Button type="primary" className= "btn" onClick={onButtonHandler}>{btnText}</Button>
+                <div onClick={onButtonHandler} className='log'>{btnText}</div>
             </div>
         </nav>
     )

@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import './CSS/Detail.css'
+import '../CSS/Detail.css'
 import { useDispatch } from 'react-redux'
-import { getInfo, editInfo} from '../../../_actions/book_actions'
+import { getInfo, editInfo} from '../../../../_actions/book_actions'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Descriptions, Rate } from 'antd';
-import bookImg from '../../img/poster.jpg'
+import bookImg from '../../../img/poster.jpg'
 import { ko } from "date-fns/esm/locale";
-import auth from "../../../hoc/auth"
+import auth from "../../../../hoc/auth"
 
 function EditPage() {
     const {bookId} = useParams()

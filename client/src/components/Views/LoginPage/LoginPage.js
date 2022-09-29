@@ -3,7 +3,7 @@ import {loginUser} from '../../../_actions/user_actions';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import auth from '../../../hoc/auth';
-
+import './LoginPage.css'
 
 function LoginPage(props) {
   const dispatch = useDispatch()
@@ -43,15 +43,18 @@ function LoginPage(props) {
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
-      height: '93vh'
+      height: '93vh',
+      backgroundColor: 'rgb(245, 252, 249)',
+      fontFamily: "KyoboHandwriting2020A"
     }}>
       <form style={{display:"flex", flexDirection: "column" }} onSubmit={onSubmitHandler} >
-        <label>email</label>
-        <input type="email" value={Email} onChange={onEmailHandler}/>
-        <label>password</label>
-        <input type="password" value={Password} onChange={onPasswordHandler}/>
+        <label className='logPagelabel'>email</label>
+        <input type="email" className='logPageinput' value={Email} onChange={onEmailHandler}/>
         <br/>
-        <button>Login</button>
+        <label className='logPagelabel'>password</label>
+        <input type="password" className='logPageinput' value={Password} onChange={onPasswordHandler}/>
+        <br/>
+        <button className='logPagebutton'>Log in</button>
       </form>
     </div>
   )

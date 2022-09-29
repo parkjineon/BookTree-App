@@ -2,13 +2,21 @@
 .navLi{
     text-decoration: none;
     color: black;
+    width: 50px;
+    text-align: center;
+    justify-content: center;
+}
+
+.navLi:hover{
+    color: green;
+    font-size: 16px;
 }
 
 nav{
     background-color: rgb(245, 252, 249);
     padding: 0 1rem;
     min-height: 35px;
-    min-width: 650px;
+    min-width: 1100px;
     height: 7vh;
     display: flex;
     justify-content: space-between;
@@ -26,6 +34,19 @@ nav{
 
 .btn{
     padding: 0 2rem;
+}
+
+.log{
+    background-color: green;
+    padding: 2px 16px;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.15s;
+}
+
+.log:hover{
+    opacity: 70%;
 }
 
 .userName{

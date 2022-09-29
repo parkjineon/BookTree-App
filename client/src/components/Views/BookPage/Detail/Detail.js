@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import './CSS/Detail.css'
+import '../CSS/Detail.css'
 import { useDispatch } from 'react-redux'
-import {getInfo} from '../../../_actions/book_actions'
+import {getInfo} from '../../../../_actions/book_actions'
 import { Badge, Descriptions, Rate } from 'antd';
-import bookImg from '../../img/poster.jpg'
-import auth from '../../../hoc/auth'
+import bookImg from '../../../img/poster.jpg'
+import auth from '../../../../hoc/auth'
 
 function Detail() {
     const {bookId} = useParams()
@@ -58,7 +58,7 @@ function Detail() {
         setRate(parseInt(response.payload.info.rate));
 
       })
-
+// eslint-disable-next-line
     },[])
 
       
@@ -69,7 +69,7 @@ function Detail() {
       <div className='detailBody'>
         <div className='detailBtnZone'><button className='detailBtn' onClick={onClickHandler}>수정</button></div>
         <div className='detailInfo'>
-          <img className="bookImage" alt="book cover" src={bookImg} />
+          <img className="bookImage" alt={title}/>
           <div className="detailTable">
             <Descriptions column={2} labelStyle={{
               'border' : 'none',
@@ -97,7 +97,7 @@ function Detail() {
               </Descriptions.Item>
               <Descriptions.Item label="시작 날짜" span={1}>{startDate}</Descriptions.Item>
               <Descriptions.Item label="끝 날짜" span={1}>{endDate}</Descriptions.Item>
-              <Descriptions.Item labelStyle={{ "alignItems" : "center", "justifyContent" : "center"}} contentStyle={{"white-space":"pre"}} label="소감문" span={2}>{review}</Descriptions.Item>
+              <Descriptions.Item labelStyle={{ "alignItems" : "center", "justifyContent" : "center"}} contentStyle={{"whiteSpace":"pre"}} label="소감문" span={2}>{review}</Descriptions.Item>
             </Descriptions>
           </div>
         </div>

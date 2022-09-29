@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import {registerUser} from '../../../_actions/user_actions';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
-import auth from '../../../hoc/auth';
+import auth from '../../../hoc/auth'
+import './RegisterPage.css'
+
 
 function RegisterPage(props) {
   const dispatch = useDispatch()
@@ -19,11 +21,11 @@ function RegisterPage(props) {
       setCheckPassword('\u00A0')
     }else{
       if(data!==event.currentTarget.value){
-        setStyle({fontSize:"2pt", padding: "2em 0", color:'red'})
+        setStyle({fontSize:"10pt", padding: '5px 1px', color:'red'})
         setCheckPassword("비밀번호가 일치하지 않습니다.")
       }
       else{
-        setStyle({fontSize:"2pt", padding: "2em 0", color:'blue'})
+        setStyle({fontSize:"10pt", padding: '5px 1px', color:'blue'})
         setCheckPassword("비밀번호가 일치합니다.")
       }
     }
@@ -76,19 +78,24 @@ function RegisterPage(props) {
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
-      height: '93vh'
+      height: '100vh',
+      backgroundColor: 'rgb(245, 252, 249)',
+      fontFamily: "KyoboHandwriting2020A"
     }}>
       <form style={{display:"flex", flexDirection: "column" }} onSubmit={onSubmitHandler} >
         <label>Email</label>
         <input type="email" value={Email} onChange={onEmailHandler}/>
+        <br/>
         <label>Name</label>
         <input type="name" value={Name} onChange={onNameHandler}/>
+        <br/>
         <label>Password</label>
         <input type="password" value={Password} onChange={onPasswordHandler}/>
+        <br/>
         <label>Password again</label>
         <input type="password" onChange={onCheckingPassword}/>
         <span style={Style}>{CheckPassword}</span>
-        <button>회원 가입</button>
+        <button className='userRegisterPageButton'>회원 가입</button>
       </form>
     </div>
   )
