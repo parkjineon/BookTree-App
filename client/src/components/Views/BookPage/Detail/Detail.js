@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import '../CSS/Detail.css'
 import { useDispatch } from 'react-redux'
-import {getInfo} from '../../../../_actions/book_actions'
+import {getInfo , removeBook} from '../../../../_actions/book_actions'
 import { Badge, Descriptions, Rate } from 'antd';
-import bookImg from '../../../img/poster.jpg'
+//import bookImg from '../../../img/poster.jpg'
 import auth from '../../../../hoc/auth'
 
 function Detail() {
@@ -22,6 +22,16 @@ function Detail() {
 
     function onClickHandler(){
       navigate(`/book/${bookId}/edit`)
+    }
+
+    function onRemoveHandler(){
+      const remove = window.confirm('삭제하시겠습니까?')
+      if(remove){ 
+        dispatch(removeBook(bookId))
+        .then(
+          navigate('/book')
+        )
+      }
     }
 
     // const createFlower = (title) =>{
@@ -67,7 +77,10 @@ function Detail() {
       <div className='detailTitle'>{title}</div>
       <Rate disabled value={rate}/>
       <div className='detailBody'>
-        <div className='detailBtnZone'><button className='detailBtn' onClick={onClickHandler}>수정</button></div>
+        <div className='detailBtnZone'>
+          <button className='detailBtn' onClick={onClickHandler}>수정</button>
+          <button className='detailBtn' onClick={onRemoveHandler}>삭제</button>
+        </div>
         <div className='detailInfo'>
           <img className="bookImage" alt={title}/>
           <div className="detailTable">

@@ -59,4 +59,15 @@ router.post('/:bookId/edit', (req,res)=>{
     })
 })
 
+router.post('/:bookId/remove', (req,res)=>{
+    Book.remove({ _id : req.params.bookId},(err)=>{
+        if(err){
+            return res.status(400).send(err);
+        }
+        return res.status(200).json({
+            removeBookSuccess:true
+        })
+    })
+})
+
 module.exports = router;

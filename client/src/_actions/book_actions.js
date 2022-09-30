@@ -3,7 +3,8 @@ import {
     COLLECT_BOOK,
     GET_INFO,
     EDIT_INFO,
-    REGISTER_BOOK
+    REGISTER_BOOK,
+    REMOVE_BOOK
 } from './types'
 
 export function collectBook(){
@@ -75,6 +76,25 @@ export function registerBook(dataToSubmit){
 
     return{
         type: REGISTER_BOOK,
+        payload: request
+    }
+}
+
+export function removeBook(Id){
+
+    const request = axios.post(`/api/books/${Id}/remove`)
+    .then(response => response.data)
+    .catch(err => { 
+
+        let payload = {
+            removeBookSuccess: false,
+            message: 'remove book 에러 발생'
+        }
+        return payload;
+    })
+
+    return{
+        type: REMOVE_BOOK,
         payload: request
     }
 }

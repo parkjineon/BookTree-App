@@ -56,7 +56,7 @@ function Nav() {
             <Link className="navLi" to='/book'>Book</Link>
             <Link className="navLi" to='/movie'>Movie</Link>
             <div id="btnZone">
-                {visible && (<Link className="navLi btn" to='/register'>Register</Link>)}
+                {visible && (<Link className="btn" to='/register'>Register</Link>)}
                 {!visible && (<div className='userName'>{userName}님</div>)}
                 <div onClick={onButtonHandler} className='log'>{btnText}</div>
             </div>

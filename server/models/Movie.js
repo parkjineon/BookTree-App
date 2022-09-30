@@ -11,7 +11,7 @@ function getCurrentDate(){
     return new Date(Date.UTC(year, month, today));
 }
 
-const bookSchema = mongoose.Schema({
+const MovieSchema = mongoose.Schema({
     user: {
         type: String
     },
@@ -23,18 +23,11 @@ const bookSchema = mongoose.Schema({
         type: String,
         default: ''
     },
-    publisher: {
-        type: String
-    },
     status: {
         type: Number,
         default: 0 // 0 다 읽음, 1 읽는 중, 2 읽을 예정
     },
-    startDate: {
-        type: Date,
-        default: getCurrentDate()
-    },
-    endDate: {
+    Date: {
         type: Date,
         default: getCurrentDate()
     },
@@ -49,15 +42,15 @@ const bookSchema = mongoose.Schema({
     }
 })
 
-bookSchema.statics.findByToken = function(token, cb){
-    var book = this
+MovieSchema.statics.findByToken = function(token, cb){
+    var Movie = this
     jwt.verify(token,secretToken,function(err, decoded){
-        book.find({"user": decoded}, function(err,books){
+        Movie.find({"user": decoded}, function(err,Movies){
             if(err) return cb(err);
-            cb(null,books)
+            cb(null,Movies)
         })
     })  
 }
 
-const Book = mongoose.model('Book', bookSchema);
-module.exports = { Book }
+const Movie = mongoose.model('Movie', MovieSchema);
+module.exports = { Movie }

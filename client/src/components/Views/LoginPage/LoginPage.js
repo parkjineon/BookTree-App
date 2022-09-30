@@ -43,6 +43,7 @@ function LoginPage(props) {
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
+      minWidth: '1100px',
       height: '93vh',
       backgroundColor: 'rgb(245, 252, 249)',
       fontFamily: "KyoboHandwriting2020A"

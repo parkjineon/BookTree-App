@@ -15,7 +15,7 @@ function BookPage() {
   return (
     <div className='bookPage'>
       <BookShelf/>
-      <div className='detailBtnZone'><button className='detailBtn' onClick={onClickHandler}>등록</button></div>
+      <div className='detailBtnZone'><button className='detailBtn bookPageRegister' onClick={onClickHandler}>등록</button></div>
       <BookList/>
     </div>
   )

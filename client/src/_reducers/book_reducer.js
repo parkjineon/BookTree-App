@@ -2,7 +2,8 @@ import {
     COLLECT_BOOK,
     GET_INFO,
     EDIT_INFO,
-    REGISTER_BOOK
+    REGISTER_BOOK,
+    REMOVE_BOOK
 } from '../_actions/types';
 
 // eslint-disable-next-line 
@@ -19,6 +20,9 @@ export default function(state ={}, action){
 
         case REGISTER_BOOK:
             return {...state, registerBookSuccess: action.payload}
+
+        case REMOVE_BOOK:
+            return {...state, removeBookSuccess: action.payload}
             
         default:
             return state;

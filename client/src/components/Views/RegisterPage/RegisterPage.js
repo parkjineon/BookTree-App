@@ -77,8 +77,9 @@ function RegisterPage(props) {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      minWidth: '1100px',
       width: '100%',
-      height: '100vh',
+      height: '93vh',
       backgroundColor: 'rgb(245, 252, 249)',
       fontFamily: "KyoboHandwriting2020A"
     }}>

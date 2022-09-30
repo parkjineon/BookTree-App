@@ -27,13 +27,23 @@ nav{
 }
 
 #btnZone{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .btn{
-    padding: 0 2rem;
+    color: black;
+    width: 80px;
+    text-align: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.btn:hover{
+    color: green;
+    font-size: 14px;
 }
 
 .log{
