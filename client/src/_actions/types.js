@@ -10,3 +10,4 @@ export const COLLECT_BOOK = 'collect_book';
 export const GET_INFO = 'get_info';
 export const EDIT_INFO = 'edit_info';
 export const REMOVE_BOOK = 'remove_book';
+export const SEARCH_KAKAOBOOK = 'search_KakaoBook'

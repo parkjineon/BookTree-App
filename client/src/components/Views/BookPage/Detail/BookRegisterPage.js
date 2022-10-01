@@ -2,10 +2,10 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../CSS/Detail.css'
 import { useDispatch } from 'react-redux'
-import { registerBook} from '../../../../_actions/book_actions'
+import { registerBook, searchKakaoBook} from '../../../../_actions/book_actions'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Descriptions, Rate } from 'antd';
+import { Descriptions, Dropdown, Rate, Menu } from 'antd';
 import bookImg from '../../../img/poster.jpg'
 import { ko } from "date-fns/esm/locale";
 import auth from "../../../../hoc/auth"
@@ -21,6 +21,32 @@ function BookRegisterPage() {
     const [rate, setRate] = useState()
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    
+
+
+    function onSearchHandler(){
+      let bookName = document.querySelector('.bookName').value
+      const params={
+        query: bookName,
+        target: 'title'
+      }
+
+      const showList = []
+      dispatch(searchKakaoBook(params))
+      .then(response => {
+        console.log(response.payload.documents)
+        const list = response.payload.documents
+
+        list.map((book, i)=>{
+          showList.push({
+            title: book.title,
+            author: book.authors[0],
+            publisher: book.publisher
+          })
+        })
+        console.log(showList);
+      })
+    }
 
     function onSaveHandler(){
       let info = {
@@ -60,7 +86,13 @@ function BookRegisterPage() {
 
   return (
     <div className='detailPage'>
-    <div className='detailTitle'><input type='text' name='bookTitle' style={{'width': 'auto', 'textAlign' : 'center'}} defaultValue={title} onChange={onTitleHandler}/></div>
+      <div className='search' style={{display: 'flex', flexDirection: 'row', margin: '20px'}}>
+          <input className='bookName' type='text' placeholder='책 이름 '/>
+          {/* <Dropdown trigger={['click']} overlay={menu} placement = 'bottomRight'> */}
+            <button className='searchBtn' onClick={onSearchHandler}>검색</button>
+          {/* </Dropdown> */}
+      </div>
+    <div className='detailTitle'><input type='text' name='bookTitle' style={{'width': 'auto', 'textAlign' : 'center', border: '1px solid gray'}} defaultValue={title} onChange={onTitleHandler}/></div>
     <Rate onChange={setRate} value={rate}/>
     <div className='detailBody'>
       <div className='detailBtnZone'><button className='detailBtn' onClick={onSaveHandler}>저장</button></div>
@@ -84,8 +116,8 @@ function BookRegisterPage() {
             'border' : 'none',
             "margin" : "8px 0"
           }}>
-            <Descriptions.Item label="저자" span={1}><input type='text' name='bookAuthor' style={{'width':'100%'}} defaultValue={author} onChange={onAuthorHandler}/></Descriptions.Item>
-            <Descriptions.Item label="출판사" span={1}><input type='text' name='bookPublisher' style={{'width':'100%'}} defaultValue={publisher} onChange={onPublisherHandler}/></Descriptions.Item>
+            <Descriptions.Item label="저자" span={1}><input type='text' name='bookAuthor' style={{'width':'100%', border: '1px solid gray'}} defaultValue={author} onChange={onAuthorHandler}/></Descriptions.Item>
+            <Descriptions.Item label="출판사" span={1}><input type='text' name='bookPublisher' style={{'width':'100%', border: '1px solid gray'}} defaultValue={publisher} onChange={onPublisherHandler}/></Descriptions.Item>
             <Descriptions.Item label="상태" span={2}>
               <input id="0" value= "0" name="status" type="radio" checked = {status === '0'} style={{'fontSize': '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}>읽기 완료</label>
               <input id="1" value="1" name="status" type="radio" checked = {status === '1'} style={{'fontSize': '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}> 읽는 중</label>

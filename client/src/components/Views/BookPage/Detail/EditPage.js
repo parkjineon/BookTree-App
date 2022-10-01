@@ -77,7 +77,7 @@ function EditPage() {
 
   return (
     <div className='detailPage'>
-    <div className='detailTitle'><input type='text' name='bookTitle' style={{'width': 'auto', 'textAlign' : 'center'}} defaultValue={title} onChange={onTitleHandler}/></div>
+    <div className='detailTitle'><input type='text' name='bookTitle' style={{'width': 'auto', 'textAlign' : 'center', 'border': '1px solid black'}} defaultValue={title} onChange={onTitleHandler}/></div>
     <Rate onChange={setRate} value={rate}/>
     <div className='detailBody'>
       <div className='detailBtnZone'><button className='detailBtn' onClick={onSaveHandler}>저장</button></div>
@@ -98,15 +98,15 @@ function EditPage() {
             'fontSize' : "18px",
             'minHeight' : '10px',
             "padding" : '0 15px',
-            'border' : 'none',
+            'border' :'none',
             "margin" : "8px 0"
           }}>
-            <Descriptions.Item label="저자" span={1}><input type='text' name='bookAuthor' style={{'width':'100%'}} defaultValue={author} onChange={onAuthorHandler}/></Descriptions.Item>
-            <Descriptions.Item label="출판사" span={1}><input type='text' name='bookPublisher' style={{'width':'100%'}} defaultValue={publisher} onChange={onPublisherHandler}/></Descriptions.Item>
+            <Descriptions.Item label="저자" span={1}><input type='text' name='bookAuthor' style={{width:'100%', border: '1px solid black'}} defaultValue={author} onChange={onAuthorHandler}/></Descriptions.Item>
+            <Descriptions.Item label="출판사" span={1}><input type='text' name='bookPublisher' style={{width:'100%', border: '1px solid black'}} defaultValue={publisher} onChange={onPublisherHandler}/></Descriptions.Item>
             <Descriptions.Item label="상태" span={2}>
-              <input id="0" value= "0" name="status" type="radio" checked = {status === '0'} style={{'fontSize': '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}>읽기 완료</label>
-              <input id="1" value="1" name="status" type="radio" checked = {status === '1'} style={{'fontSize': '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}> 읽는 중</label>
-              <input id="2" value="2" name="status" type="radio" checked = {status === '2'} style={{'fontSize': '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}> 읽을 예정</label>
+              <input id="0" value= "0" name="status" type="radio" checked = {status === '0'} style={{fontSize: '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}>읽기 완료</label>
+              <input id="1" value="1" name="status" type="radio" checked = {status === '1'} style={{fontSize: '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}> 읽는 중</label>
+              <input id="2" value="2" name="status" type="radio" checked = {status === '2'} style={{fontSize: '20px'}} onChange={onRadioHandler}/> <label style={{'padding': '0 15px 0 2px'}}> 읽을 예정</label>
             </Descriptions.Item>
             <Descriptions.Item label="시작 날짜" span={1}><DatePicker locale={ko} dateFormat="yyyy-MM-dd" selected= {startDate} onChange={(date) => setStartDate(date)} /></Descriptions.Item>
             <Descriptions.Item label="끝 날짜" span={1}><DatePicker locale={ko} dateFormat="yyyy-MM-dd" selected= {endDate} onChange={(date) => setEndDate(date)} /></Descriptions.Item>

@@ -1,10 +1,12 @@
 import axios from 'axios'
+import { KAKAO_KEY } from '../key'
 import {
     COLLECT_BOOK,
     GET_INFO,
     EDIT_INFO,
     REGISTER_BOOK,
-    REMOVE_BOOK
+    REMOVE_BOOK,
+    SEARCH_KAKAOBOOK
 } from './types'
 
 export function collectBook(){
@@ -97,4 +99,29 @@ export function removeBook(Id){
         type: REMOVE_BOOK,
         payload: request
     }
+}
+
+export function searchKakaoBook(params){
+   const Kakao = axios.create({
+        baseURL: "https://dapi.kakao.com",
+        headers:{
+            Authorization: `KakaoAK ${KAKAO_KEY}`
+        }
+   })
+
+   const request = Kakao.get("/v3/search/book",{params})
+   .then(response => response.data)
+   .catch(err => { 
+    console.log(err)
+    let payload = {
+        searchKakaoBookSuccess: false,
+        message: 'search book 에러 발생'
+    }
+    return payload;
+})
+
+   return{
+    type: SEARCH_KAKAOBOOK,
+    payload: request
+}
 }
