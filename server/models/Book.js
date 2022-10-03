@@ -26,6 +26,9 @@ const bookSchema = mongoose.Schema({
     publisher: {
         type: String
     },
+    img:{
+        type: String
+    },
     status: {
         type: Number,
         default: 0 // 0 다 읽음, 1 읽는 중, 2 읽을 예정

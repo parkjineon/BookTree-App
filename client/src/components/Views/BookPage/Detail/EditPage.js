@@ -6,12 +6,12 @@ import { getInfo, editInfo} from '../../../../_actions/book_actions'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Descriptions, Rate } from 'antd';
-import bookImg from '../../../img/poster.jpg'
 import { ko } from "date-fns/esm/locale";
 import auth from "../../../../hoc/auth"
 
 function EditPage() {
     const {bookId} = useParams()
+    const [bookImg, setBookImg] = useState('')
     const [title,setTitle] = useState('')
     const [author,setAuthor] = useState('')
     const [publisher,setPublisher] = useState('')
@@ -69,7 +69,7 @@ function EditPage() {
         setEndDate(new Date(response.payload.info.endDate));
         setReview(response.payload.info.review);
         setRate(parseInt(response.payload.info.rate));
-
+        setBookImg(response.payload.info.img);
       })
 
 // eslint-disable-next-line 

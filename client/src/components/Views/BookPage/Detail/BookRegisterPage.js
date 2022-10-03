@@ -2,15 +2,18 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../CSS/Detail.css'
 import { useDispatch } from 'react-redux'
-import { registerBook, searchKakaoBook} from '../../../../_actions/book_actions'
+import { registerBook} from '../../../../_actions/book_actions'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Descriptions, Dropdown, Rate, Menu } from 'antd';
-import bookImg from '../../../img/poster.jpg'
+import { Descriptions, Rate } from 'antd';
 import { ko } from "date-fns/esm/locale";
 import auth from "../../../../hoc/auth"
+import SearchBookList from './SearchBookList'
 
 function BookRegisterPage() {
+    const [modal,setModal] = useState(false)
+    const [bookImg, setBookImg] = useState('')
+    const [bookName,setBookName] = useState()
     const [title,setTitle] = useState('')
     const [author,setAuthor] = useState('')
     const [publisher,setPublisher] = useState('')
@@ -21,31 +24,10 @@ function BookRegisterPage() {
     const [rate, setRate] = useState()
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    
 
-
-    function onSearchHandler(){
-      let bookName = document.querySelector('.bookName').value
-      const params={
-        query: bookName,
-        target: 'title'
-      }
-
-      const showList = []
-      dispatch(searchKakaoBook(params))
-      .then(response => {
-        console.log(response.payload.documents)
-        const list = response.payload.documents
-
-        list.map((book, i)=>{
-          showList.push({
-            title: book.title,
-            author: book.authors[0],
-            publisher: book.publisher
-          })
-        })
-        console.log(showList);
-      })
+    function onChangeHandler(e){
+      setModal(false);
+      setBookName(e.target.value)
     }
 
     function onSaveHandler(){
@@ -57,7 +39,8 @@ function BookRegisterPage() {
         startDate : startDate,
         endDate : endDate,
         review : review,
-        rate : rate
+        rate : rate,
+        img : bookImg
       }
       dispatch(registerBook(info))
       .then(navigate(`/book`))
@@ -86,19 +69,18 @@ function BookRegisterPage() {
 
   return (
     <div className='detailPage'>
-      <div className='search' style={{display: 'flex', flexDirection: 'row', margin: '20px'}}>
-          <input className='bookName' type='text' placeholder='책 이름 '/>
-          {/* <Dropdown trigger={['click']} overlay={menu} placement = 'bottomRight'> */}
-            <button className='searchBtn' onClick={onSearchHandler}>검색</button>
-          {/* </Dropdown> */}
+      <div className='search'>
+          <input className='bookName' type='text' placeholder='책 이름 ' onChange={onChangeHandler}/>
+          <button className='searchBtn' onClick={()=>{setModal(!modal)}}>검색</button>
+          {modal&&<SearchBookList setTitle={setTitle} setAuthor={setAuthor} setPublisher={setPublisher} setBookImg={setBookImg} title={bookName}/>}
       </div>
-    <div className='detailTitle'><input type='text' name='bookTitle' style={{'width': 'auto', 'textAlign' : 'center', border: '1px solid gray'}} defaultValue={title} onChange={onTitleHandler}/></div>
-    <Rate onChange={setRate} value={rate}/>
-    <div className='detailBody'>
-      <div className='detailBtnZone'><button className='detailBtn' onClick={onSaveHandler}>저장</button></div>
-      <div className='detailInfo'>
-        <img className="bookImage" alt="book cover" src={bookImg} />
-        <div className="detailTable">
+      <div className='detailTitle'><input type='text' name='bookTitle' style={{'width': 'auto', 'textAlign' : 'center', border: '1px solid gray'}} defaultValue={title} onChange={onTitleHandler}/></div>
+      <Rate onChange={setRate} value={rate}/>
+      <div className='detailBody'>
+        <div className='detailBtnZone'><button className='detailBtn' onClick={onSaveHandler}>저장</button></div>
+        <div className='detailInfo'>
+          <img className="bookImage" alt="book cover" src={bookImg} />
+          <div className="detailTable">
           <Descriptions column={2} labelStyle={{
             'border' : 'none',
             'fontSize' : "20px",

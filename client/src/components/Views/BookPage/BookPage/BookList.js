@@ -22,7 +22,8 @@ function BookList() {
           const oneBook = document.createElement('img')
           oneBook.classList.add('ABook')
           oneBook.addEventListener("click",()=>onClickBookHandler(book._id))
-          oneBook.alt = book.title
+          oneBook.src = book.img;
+          oneBook.alt = book.title;
           bookList.appendChild(oneBook);
         })
 

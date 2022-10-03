@@ -9,6 +9,7 @@ import auth from '../../../../hoc/auth'
 
 function Detail() {
     const {bookId} = useParams()
+    const [bookImg, setBookImg] = useState('')
     const [title,setTitle] = useState('')
     const [author,setAuthor] = useState('')
     const [publisher,setPublisher] = useState('')
@@ -66,6 +67,7 @@ function Detail() {
         setEndDate((response.payload.info.endDate).toString().split('T')[0]);
         setReview(response.payload.info.review);
         setRate(parseInt(response.payload.info.rate));
+        setBookImg(response.payload.info.img);
 
       })
 // eslint-disable-next-line
@@ -82,7 +84,7 @@ function Detail() {
           <button className='detailBtn' onClick={onRemoveHandler}>삭제</button>
         </div>
         <div className='detailInfo'>
-          <img className="bookImage" alt={title}/>
+          <img className="bookImage" src={bookImg} alt={title}/>
           <div className="detailTable">
             <Descriptions column={2} labelStyle={{
               'border' : 'none',
