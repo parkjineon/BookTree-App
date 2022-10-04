@@ -27,7 +27,14 @@
     background-size: contain;
     width: 500px;
     height: 135px;
+    position: relative;
+}
 
+.bookOnShelf{
+    position: absolute;
+    width:20px;
+    border: 1px solid gray;
+    cursor: pointer;
 }
 
 .bookList{
