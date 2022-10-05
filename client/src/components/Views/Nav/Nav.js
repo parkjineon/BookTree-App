@@ -52,8 +52,8 @@ function Nav() {
 
     return (
         <nav>
-            <Link className="navLi" to='/'>Home</Link>
-            <Link className="navLi" to='/book'>Book</Link>
+            <Link className="navLi" to='/'>책과 영화나무</Link>
+            <Link className="navLi" to='/book'>나만의 책장</Link>
             <Link className="navLi" to='/movie'>Movie</Link>
             <div id="btnZone">
                 {visible && (<Link className="btn" to='/register'>Register</Link>)}

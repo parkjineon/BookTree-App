@@ -12,6 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/books', require('./routes/books'));
+app.use('/api/movies',require('./routes/movies'));
+
 
 mongoose.connect(config.mongoURI,{
     useNewUrlParser: true, useUnifiedTopology: true,

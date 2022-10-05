@@ -19,15 +19,14 @@ const MovieSchema = mongoose.Schema({
         type: String,
         minlength: 1,
     },
-    author: {
+    actor: {
+        type: Array
+    },
+    director: {
         type: String,
         default: ''
     },
-    status: {
-        type: Number,
-        default: 0 // 0 다 읽음, 1 읽는 중, 2 읽을 예정
-    },
-    Date: {
+    date: {
         type: Date,
         default: getCurrentDate()
     },
