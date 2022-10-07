@@ -12,7 +12,7 @@ import LoginPage from './Views/LoginPage/LoginPage';
 import RegisterPage from './Views/RegisterPage/RegisterPage';
 import BookRegisterPage from './Views/BookPage/Detail/BookRegisterPage'
 import BookPage from "./Views/BookPage/BookPage/BookPage";
-import MoviePage from "./Views/MoviePage/MoviePage";
+import MoviePage from "./Views/MoviePage/MoviePage/MoviePage";
 import Detail from "./Views/BookPage/Detail/Detail"
 import EditPage from "./Views/BookPage/Detail/EditPage";
 import PopUp from "./Views/PopUp/PopUp";

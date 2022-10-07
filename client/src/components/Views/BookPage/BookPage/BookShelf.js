@@ -58,7 +58,7 @@ function BookShelf() {
             one.style.left= (i-j*20)*20 + 37 + parseInt((i-j*20)/5)*11 +'px';
             const color = getRandomColor()
             one.style.backgroundColor = color[0];
-            one.style.border= '1px solid '+color[1];
+            one.style.border= '4px solid '+color[1];
             one.title = bookShelfList[i].title
             one.addEventListener('click',()=>onClickHandler(bookShelfList[i]._id))
             shelf.appendChild(one);

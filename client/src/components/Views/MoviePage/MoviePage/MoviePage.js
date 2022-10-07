@@ -1,13 +1,13 @@
 import React from 'react'
-import auth from '../../../hoc/auth'
-import MovieMain from './MovieMain'
+import auth from '../../../../hoc/auth'
 import MovieList from './MovieList'
-import './MoviePage.css'
+import '../MoviePage.css'
+import MovieShelf from './MovieShelf'
 
 function MoviePage() {
   return (
     <div className='moviePage'>
-      <MovieMain/>
+      <MovieShelf/>
       <MovieList/>
     </div>
   )

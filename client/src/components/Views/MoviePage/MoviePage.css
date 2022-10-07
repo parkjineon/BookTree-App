@@ -1,3 +1,4 @@
+/* moviePage */
 .moviePage{
     display: flex;
     flex-direction: column;
@@ -6,4 +7,53 @@
     min-height: 93vh;
     background-color: rgb(245, 252, 249);
     font-family: "KyoboHandwriting2020A";
+}
+
+.moviePageRegister{
+    margin: 0 40px;
+}
+
+.movieShelfPage{
+    /* padding: 30px 0 0 0; */
+    width: 100%;
+    min-height: 250px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    place-items: center;
+}
+
+.movieShelf{
+    background: url(../../img/note.png) no-repeat center;
+    background-size: contain;
+    width: 500px;
+    height: 135px;
+    position: relative;
+}
+
+.movieOnShelf{
+    position: absolute;
+    width:20px;
+    /* border: 1px solid rgb(146, 146, 146); */
+    cursor: pointer;
+    border-radius: 3px;
+    transition-duration: 0.2s;
+}
+
+.movieOnShelf:hover{
+    transform: scale(1.1);
+}
+
+.movieList{
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.Amovie{
+    width: 200px;
+    height: 260px;
+    margin: 10px 0;
+    cursor: pointer;
 }
