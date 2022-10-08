@@ -19,5 +19,21 @@ router.post('/register', auth, (req,res)=>{
     })
 })
 
+router.get('/collect',(req,res)=>{
+    if(req.cookies.x_auth===undefined){ 
+        return res.status(200).json({collectMovieSuccess:true, movies: []})
+    }
+    Movie.findByToken(req.cookies.x_auth, (err,movies)=>{
+        if(err){
+            console.log('collect Movie error')
+            return res.status(400).send(err);
+        }
+        return res.status(200).json({
+            collectMovieSuccess: true,
+            movies: movies
+        })
+    });
+
+})
 
 module.exports = router;

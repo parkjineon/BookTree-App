@@ -32,15 +32,22 @@
 
 .movieOnShelf{
     position: absolute;
-    width:20px;
-    /* border: 1px solid rgb(146, 146, 146); */
+    height: 80px;
+    width: 40px;
+    bottom: 25px;
+    background: url(../../img/ticket.png) no-repeat center;
+    background-size: contain;
     cursor: pointer;
     border-radius: 3px;
     transition-duration: 0.2s;
 }
 
 .movieOnShelf:hover{
-    transform: scale(1.1);
+    height: 88px;
+    width: 44px;
+    bottom: 25px;
+    background: url(../../img/ticketAfter.png) no-repeat center;
+    background-size: contain;
 }
 
 .movieList{
@@ -51,7 +58,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.Amovie{
+.AMovie{
     width: 200px;
     height: 260px;
     margin: 10px 0;

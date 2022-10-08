@@ -13,3 +13,5 @@ export const REMOVE_BOOK = 'remove_book';
 export const SEARCH_KAKAOBOOK = 'search_KakaoBook'
 
 //movie
+export const REGISTER_MOVIE = 'register_movie';
+export const COLLECT_MOVIE = 'collect_movie';

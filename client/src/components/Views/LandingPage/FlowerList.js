@@ -1,5 +1,6 @@
 import React, { useEffect} from 'react'
 import { useDispatch } from 'react-redux';
+import {collectMovie} from '../../../_actions/movie_actions';
 import { collectBook } from '../../../_actions/book_actions';
 import {useNavigate} from 'react-router-dom';
 import './CSS/LandingPage.css'
@@ -10,6 +11,10 @@ function FlowerList() {
 
   function onClickFlowerHandler(bookId){
     navigate(`/book/${bookId}`)
+  }
+
+  function onClickMovieFlowerHandler(movieId){
+    navigate(`/movie/${movieId}`)
   }
 
   //난수 생성
@@ -50,6 +55,16 @@ function FlowerList() {
     flower.addEventListener("click",()=>onClickFlowerHandler(title._id))
     tree.appendChild(flower);
   }
+
+  const createFlower2 = (title) =>{
+    const tree = document.querySelector('.tree')
+    const flower= document.createElement('span')
+    flower.classList.add(`flower2`);
+    createSTH(flower)
+    flower.title = `제목: ${title.title}\n감독: ${title.director}`
+    flower.addEventListener("click",()=>onClickMovieFlowerHandler(title._id))
+    tree.appendChild(flower);
+  }
   
   const createApple= (num) =>{
     const tree = document.querySelector('.tree')
@@ -77,7 +92,26 @@ function FlowerList() {
   }
   
   useEffect(()=>{
+    dispatch(collectMovie())
+    .then(response=>{
+      if(response.payload.collectMovieSuccess){
+        var length = response.payload.movies.length
 
+        for(let i=1; i <= length*3; i++){
+          createLeaf()
+        }
+    
+        for(let i=1; i <= length; i++){
+          if((i%5)===0){
+            createApple(i)
+          }
+          createFlower2(response.payload.movies[i-1])
+        }
+
+      } else {
+        alert(response.payload.message)
+      }
+    })
     dispatch(collectBook())
     .then(response => {
       if(response.payload.collectBookSuccess){
