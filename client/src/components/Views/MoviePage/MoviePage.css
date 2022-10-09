@@ -43,12 +43,93 @@
 }
 
 .movieOnShelf:hover{
-    height: 88px;
-    width: 44px;
+    height: 80px;
+    width: 40px;
     bottom: 25px;
     background: url(../../img/ticketAfter.png) no-repeat center;
     background-size: contain;
 }
+
+.movieOnShelf2{
+    position: absolute;
+    height: 80px;
+    width: 40px;
+    bottom: 25px;
+    background: url(../../img/ticket2.png) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    border-radius: 3px;
+    transition-duration: 0.2s;
+}
+
+.movieOnShelf2:hover{
+    height: 80px;
+    width: 40px;
+    bottom: 25px;
+    background: url(../../img/ticketAfter2.png) no-repeat center;
+    background-size: contain;
+}
+
+.movieOnShelf3{
+    position: absolute;
+    height: 80px;
+    width: 40px;
+    bottom: 25px;
+    background: url(../../img/ticket3.png) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    border-radius: 3px;
+    transition-duration: 0.2s;
+}
+
+.movieOnShelf3:hover{
+    height: 80px;
+    width: 40px;
+    bottom: 25px;
+    background: url(../../img/ticketAfter3.png) no-repeat center;
+    background-size: contain;
+}
+
+.movieOnShelf4{
+    position: absolute;
+    height: 80px;
+    width: 40px;
+    bottom: 25px;
+    background: url(../../img/ticket4.png) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    border-radius: 3px;
+    transition-duration: 0.2s;
+}
+
+.movieOnShelf4:hover{
+    height: 80px;
+    width: 40px;
+    bottom: 25px;
+    background: url(../../img/ticketAfter4.png) no-repeat center;
+    background-size: contain;
+}
+
+.movieOnShelf5{
+    position: absolute;
+    height: 80px;
+    width: 40px;
+    bottom: 25px;
+    background: url(../../img/ticket5.png) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    border-radius: 3px;
+    transition-duration: 0.2s;
+}
+
+.movieOnShelf5:hover{
+    height: 80px;
+    width: 40px;
+    bottom: 25px;
+    background: url(../../img/ticketAfter5.png) no-repeat center;
+    background-size: contain;
+}
+
 
 .movieList{
     width: 100%;

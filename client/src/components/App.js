@@ -16,6 +16,7 @@ import MoviePage from "./Views/MoviePage/MoviePage/MoviePage";
 import Detail from "./Views/BookPage/Detail/Detail"
 import EditPage from "./Views/BookPage/Detail/EditPage";
 import PopUp from "./Views/PopUp/PopUp";
+import MovieRegisterPage from "./Views/MoviePage/Detail/MovieRegisterPage";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route className='page' path="/book/:bookId/edit" element={<EditPage/>}/>
           <Route className='page' path="/book/register" element={<BookRegisterPage/>}/>
           <Route className='page' path="/popup" element={<PopUp/>}/>
+          <Route className='page' path="/movie/register" element={<MovieRegisterPage/>}/>
         </Routes>
       </div>
     </Router>

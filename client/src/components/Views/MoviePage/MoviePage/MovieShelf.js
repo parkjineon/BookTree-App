@@ -27,10 +27,10 @@ function MovieShelf() {
   //   return [rgb,borderRgb];
   // }
 
-  // function getRand(min, max) {
-  //   if (min >= max) return false;
-  //   return ~~(Math.random() * (max - min + 1)) + min;
-  // };
+  function getRand(min, max) {
+    if (min >= max) return false;
+    return ~~(Math.random() * (max - min + 1)) + min;
+  };
 
   function onClickHandler(MovieId){
     navigate(`/movie/${MovieId}`)
@@ -43,17 +43,18 @@ function MovieShelf() {
         const movieShelfPage = document.querySelector('.movieShelfPage')
         const movieShelfList = response.payload.movies
         const movieNum = response.payload.movies.length
-        for(let j = 0; j < parseInt(movieNum/20)+1; j++){
-          if(movieNum%20===0 && j === parseInt(movieNum/20)) break;
+        const ticketList = ['movieOnShelf','movieOnShelf2','movieOnShelf3','movieOnShelf4','movieOnShelf5']
+        for(let j = 0; j < parseInt(movieNum/10)+1; j++){
+          if(movieNum%10===0 && j === parseInt(movieNum/10)) break;
           const shelf = document.createElement('div');
           shelf.classList.add('movieShelf');
           movieShelfPage.appendChild(shelf);
-          for(let i = j*20; i < movieNum && i < (j+1)*20; i++){
+          for(let i = j*10; i < movieNum && i < (j+1)*10; i++){
 
             const one = document.createElement('div');
-            one.classList.add('movieOnShelf');
+            one.classList.add(ticketList[getRand(0,4)]);
             const num =Math.random()
-            one.style.left= (i-j*20)*20 + 60 + parseInt((i-j*20)/5)*11 +'px';
+            one.style.left= (i-j*10)*40 + 60 +'px';
             one.title = movieShelfList[i].title
             one.addEventListener('click',()=>onClickHandler(movieShelfList[i]._id))
             shelf.appendChild(one);

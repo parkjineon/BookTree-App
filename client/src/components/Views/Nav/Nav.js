@@ -52,7 +52,7 @@ function Nav() {
 
     return (
         <nav>
-            <Link className="navLi" to='/'>책과 영화나무</Link>
+            <Link className="navLi" to='/'>책과 꽃나무</Link>
             <Link className="navLi" to='/book'>나만의 책장</Link>
             <Link className="navLi" to='/movie'>나만의 티켓</Link>
             <div id="btnZone">
