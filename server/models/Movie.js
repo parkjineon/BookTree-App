@@ -38,6 +38,9 @@ const MovieSchema = mongoose.Schema({
     },
     review: {
         type: String
+    },
+    img:{
+        type: String
     }
 })
 
