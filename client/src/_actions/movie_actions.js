@@ -2,7 +2,8 @@ import axios from 'axios'
 import { KAKAO_KEY } from '../key'
 import {
     REGISTER_MOVIE,
-    COLLECT_MOVIE
+    COLLECT_MOVIE,
+    GET_MOVIE_INFO
 } from './types'
 
 export function registerMovie(dataToSubmit){
@@ -37,6 +38,24 @@ export function collectMovie(){
     })
     return{
         type: COLLECT_MOVIE,
+        payload: request
+    }
+}
+
+export function getMovieInfo(Id){
+
+    const request = axios.get(`/api/movies/${Id}`)
+    .then(response => response.data)
+    .catch(err => { 
+        console.log(err)
+        let payload = {
+            getMovieInfoSuccess: false,
+            message: 'get Movie Info 에러 발생'
+        }
+        return payload;
+    })
+    return{
+        type: GET_MOVIE_INFO,
         payload: request
     }
 }

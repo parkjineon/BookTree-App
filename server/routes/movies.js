@@ -36,4 +36,16 @@ router.get('/collect',(req,res)=>{
 
 })
 
+router.get('/:movieId',(req,res)=>{
+    Movie.findOne({_id : req.params.movieId},(err, info)=>{
+        if(err){
+            return res.status(400).send(err);
+        }
+        return res.status(200).json({
+            getInfoMovieSuccess:true, 
+            info: info
+        })
+    })
+})
+
 module.exports = router;

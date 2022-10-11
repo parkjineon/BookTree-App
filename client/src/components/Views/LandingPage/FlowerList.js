@@ -8,6 +8,7 @@ import './CSS/LandingPage.css'
 function FlowerList() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const leafList = ['leaf1','leaf2','leaf3']
 
   function onClickFlowerHandler(bookId){
     navigate(`/book/${bookId}`)
@@ -79,16 +80,12 @@ function FlowerList() {
     const tree = document.querySelector('.tree')
     const leaf1= document.createElement('span')
     const leaf2= document.createElement('span')
-    const leaf3= document.createElement('span')
-    leaf1.classList.add(`leaf1`);
-    leaf2.classList.add(`leaf2`);
-    leaf3.classList.add(`leaf3`);
+    leaf1.classList.add(leafList[rand(0,2)]);
+    leaf2.classList.add(leafList[rand(0,2)]);
     createSTH(leaf1)
     createSTH(leaf2)
-    createSTH(leaf3)
     tree.appendChild(leaf1);
     tree.appendChild(leaf2);
-    tree.appendChild(leaf3);
   }
   
   useEffect(()=>{
