@@ -15,4 +15,6 @@ export const SEARCH_KAKAOBOOK = 'search_KakaoBook'
 //movie
 export const REGISTER_MOVIE = 'register_movie';
 export const COLLECT_MOVIE = 'collect_movie';
-export const GET_MOVIE_INFO = 'get_movie_info'
+export const GET_MOVIE_INFO = 'get_movie_info';
+export const EDIT_MOVIE_INFO = 'edit_movie_info';
+export const REMOVE_MOVIE = 'remove_movie';

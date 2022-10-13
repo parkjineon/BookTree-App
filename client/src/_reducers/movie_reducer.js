@@ -1,7 +1,9 @@
 import {
     REGISTER_MOVIE,
     COLLECT_MOVIE,
-    GET_MOVIE_INFO
+    GET_MOVIE_INFO,
+    EDIT_MOVIE_INFO,
+    REMOVE_MOVIE
 } from '../_actions/types';
 
 // eslint-disable-next-line 
@@ -15,7 +17,13 @@ export default function(state ={}, action){
 
         case GET_MOVIE_INFO:
             return {...state, getMovieInfoSuccess: action.payload}
-            
+
+        case EDIT_MOVIE_INFO:
+            return {...state, editMovieInfoSuccess: action.payload}
+
+        case REMOVE_MOVIE:
+            return {...state, removeMovieSuccess: action.payload}  
+
         default:
             return state;
     }

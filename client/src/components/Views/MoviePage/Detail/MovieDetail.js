@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import '../MoviePage.css'
 import { useDispatch } from 'react-redux'
-import {getMovieInfo} from '../../../../_actions/movie_actions'
+import {getMovieInfo, removeMovie} from '../../../../_actions/movie_actions'
 import { Badge, Descriptions, Rate } from 'antd';
 //import bookImg from '../../../img/poster.jpg'
 import auth from '../../../../hoc/auth'
@@ -23,15 +23,15 @@ function MovieDetail() {
       navigate(`/movie/${movieId}/edit`)
     }
 
-    // function onRemoveHandler(){
-    //   const remove = window.confirm('삭제하시겠습니까?')
-    //   if(remove){ 
-    //     dispatch(removeBook(bookId))
-    //     .then(
-    //       navigate('/book')
-    //     )
-    //   }
-    // }
+    function onRemoveHandler(){
+      const remove = window.confirm('삭제하시겠습니까?')
+      if(remove){ 
+        dispatch(removeMovie(movieId))
+        .then(
+          navigate('/movie')
+        )
+      }
+    }
 
     // const createFlower = (title) =>{
     //   const field = document.querySelector('.field')
@@ -77,7 +77,7 @@ function MovieDetail() {
       <div className='detailBody'>
         <div className='detailBtnZone'>
           <button className='detailBtn' onClick={onClickHandler}>수정</button>
-          {/* <button className='detailBtn' onClick={onRemoveHandler}>삭제</button> */}
+          <button className='detailBtn' onClick={onRemoveHandler}>삭제</button>
         </div>
         <div className='detailInfo'>
           <img className="bookImage" src={movieImg} alt={title}/>
@@ -100,7 +100,7 @@ function MovieDetail() {
               "margin" : "8px 0"
             }}>
               <Descriptions.Item label="감독" span={1}>{director}</Descriptions.Item>
-              <Descriptions.Item label="관람 날짜" span={2}>{date}</Descriptions.Item>
+              <Descriptions.Item label="관람 날짜" span={1}>{date}</Descriptions.Item>
               <Descriptions.Item labelStyle={{ "alignItems" : "center", "justifyContent" : "center"}} contentStyle={{"whiteSpace":"pre"}} label="소감문" span={2}>{review}</Descriptions.Item>
               <Descriptions.Item label="출연진" span={2}>{actor}</Descriptions.Item>
             </Descriptions>

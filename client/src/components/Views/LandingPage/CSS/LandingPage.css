@@ -9,7 +9,9 @@
     /* background-attachment: fixed; */
     display:flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;  
+    font-family: "KyoboHandwriting2020A";  
+    position:relative;
 }
 
 .tree{
@@ -181,10 +183,39 @@
     height: 130px;
     transition: all 0.2s ;
     cursor: pointer;
+    z-index: 100;
 }
 
 .readingBoy:hover{
     transform: scale(1.05);
     -ms-transform: scale(1.05);
     -webkit-transform: scale(1.05);
+}
+
+.registerType{
+    position: relative;
+    border: 2px solid rgb(124, 111, 82);
+    background-color: rgb(245, 252, 249);
+    top: 250px;
+    left: 150px;
+    z-index: 101;
+    opacity: 80%;
+}
+
+.selectType{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.2s ;
+    padding: 10px;
+    margin: 0 10px;
+    opacity: 100%;
+}
+
+.selectType:hover{
+    transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+
 }

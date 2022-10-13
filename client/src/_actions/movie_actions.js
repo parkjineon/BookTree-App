@@ -3,7 +3,9 @@ import { KAKAO_KEY } from '../key'
 import {
     REGISTER_MOVIE,
     COLLECT_MOVIE,
-    GET_MOVIE_INFO
+    GET_MOVIE_INFO,
+    EDIT_MOVIE_INFO,
+    REMOVE_MOVIE
 } from './types'
 
 export function registerMovie(dataToSubmit){
@@ -56,6 +58,44 @@ export function getMovieInfo(Id){
     })
     return{
         type: GET_MOVIE_INFO,
+        payload: request
+    }
+}
+
+export function editMovieInfo(Id,dataToSubmit){
+
+    const request = axios.post(`/api/movies/${Id}/edit`,dataToSubmit)
+    .then(response => response.data)
+    .catch(err => { 
+
+        let payload = {
+            editMovieInfoSuccess: false,
+            message: 'edit Movie Info 에러 발생'
+        }
+        return payload;
+    })
+
+    return{
+        type: EDIT_MOVIE_INFO,
+        payload: request
+    }
+}
+
+export function removeMovie(Id){
+
+    const request = axios.post(`/api/movies/${Id}/remove`)
+    .then(response => response.data)
+    .catch(err => { 
+
+        let payload = {
+            removeMovieSuccess: false,
+            message: 'remove movie 에러 발생'
+        }
+        return payload;
+    })
+
+    return{
+        type: REMOVE_MOVIE,
         payload: request
     }
 }

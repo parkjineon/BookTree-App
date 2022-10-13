@@ -42,8 +42,30 @@ router.get('/:movieId',(req,res)=>{
             return res.status(400).send(err);
         }
         return res.status(200).json({
-            getInfoMovieSuccess:true, 
+            getMovieInfoSuccess:true, 
             info: info
+        })
+    })
+})
+
+router.post('/:movieId/edit', (req,res)=>{
+    Movie.findOneAndUpdate({ _id : req.params.movieId},req.body,(err)=>{
+        if(err){
+            return res.status(400).send(err);
+        }
+        return res.status(200).json({
+            editMovieInfoSuccess:true
+        })
+    })
+})
+
+router.post('/:movieId/remove', (req,res)=>{
+    Movie.remove({ _id : req.params.movieId},(err)=>{
+        if(err){
+            return res.status(400).send(err);
+        }
+        return res.status(200).json({
+            removeMovieSuccess:true
         })
     })
 })
