@@ -3,7 +3,8 @@ import {
     COLLECT_MOVIE,
     GET_MOVIE_INFO,
     EDIT_MOVIE_INFO,
-    REMOVE_MOVIE
+    REMOVE_MOVIE,
+    SEARCH_KAKAOIMG
 } from '../_actions/types';
 
 // eslint-disable-next-line 
@@ -22,7 +23,10 @@ export default function(state ={}, action){
             return {...state, editMovieInfoSuccess: action.payload}
 
         case REMOVE_MOVIE:
-            return {...state, removeMovieSuccess: action.payload}  
+            return {...state, removeMovieSuccess: action.payload} 
+            
+        case SEARCH_KAKAOIMG:
+            return {...state, searchKakaoImgSuccess: action.payload}
 
         default:
             return state;

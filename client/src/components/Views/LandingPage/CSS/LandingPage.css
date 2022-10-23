@@ -182,15 +182,15 @@
     width: 130px;
     height: 130px;
     transition: all 0.2s ;
-    cursor: pointer;
+    /* cursor: pointer; */
     z-index: 100;
 }
 
-.readingBoy:hover{
+/* .readingBoy:hover{
     transform: scale(1.05);
     -ms-transform: scale(1.05);
     -webkit-transform: scale(1.05);
-}
+} */
 
 .registerType{
     position: relative;
