@@ -5,8 +5,7 @@ import {
     COLLECT_MOVIE,
     GET_MOVIE_INFO,
     EDIT_MOVIE_INFO,
-    REMOVE_MOVIE,
-    SEARCH_KAKAOIMG
+    REMOVE_MOVIE
 } from './types'
 
 export function registerMovie(dataToSubmit){
@@ -100,28 +99,3 @@ export function removeMovie(Id){
         payload: request
     }
 }
-
-export function searchKakaoImg(params){
-    const Kakao = axios.create({
-         baseURL: "https://dapi.kakao.com",
-         headers:{
-             Authorization: `KakaoAK ${KAKAO_KEY}`
-         }
-    })
- 
-    const request = Kakao.get("/v2/search/image",{params})
-    .then(response => response.data)
-    .catch(err => { 
-     console.log(err)
-     let payload = {
-         searchKakaoImgSuccess: false,
-         message: 'search img 에러 발생'
-     }
-     return payload;
- })
- 
-    return{
-     type: SEARCH_KAKAOIMG,
-     payload: request
- }
- }

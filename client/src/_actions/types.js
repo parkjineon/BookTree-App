@@ -18,4 +18,3 @@ export const COLLECT_MOVIE = 'collect_movie';
 export const GET_MOVIE_INFO = 'get_movie_info';
 export const EDIT_MOVIE_INFO = 'edit_movie_info';
 export const REMOVE_MOVIE = 'remove_movie';
-export const SEARCH_KAKAOIMG = 'search_KakaoImg'

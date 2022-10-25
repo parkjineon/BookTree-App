@@ -18,8 +18,8 @@ function LandingPage() {
     <div className='LandingPage'>
       <LeavesFalling/>
       <FlowerList />
-      <div className='readingBoy' ></div> 
-      {/* {modal&&<RegisterType/>} */}
+      <div className='readingBoy' onClick={onOpenModal}></div> 
+      {modal&&<RegisterType/>}
     </div>
   )
 }

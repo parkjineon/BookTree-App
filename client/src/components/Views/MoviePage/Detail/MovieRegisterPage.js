@@ -8,14 +8,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Descriptions, Rate } from 'antd';
 import { ko } from "date-fns/esm/locale";
 import auth from "../../../../hoc/auth"
-import SearchMovieImg from './SearchMovieImg'
 
 
 function MovieRegisterPage() {
     const [modal,setModal] = useState(false)
     const [movieImg, setMovieImg] = useState('')
     const [title,setTitle] = useState('')
-    const [movieTitle,setMovieTitle] = useState()
     const [director,setDirector] = useState('')
     const [actor,setActor] = useState('')
     const [date, setDate] = useState()
@@ -24,10 +22,10 @@ function MovieRegisterPage() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    function onChangeHandler(e){
-      setModal(false);
-      setMovieTitle(e.target.value)
-    }
+    // function onChangeHandler(e){
+    //   setModal(false);
+    //   setBookName(e.target.value)
+    // }
 
     function onSaveHandler(){
       let info = {
@@ -63,17 +61,17 @@ function MovieRegisterPage() {
 
   return (
     <div className='detailPage'>
-      <div className='search'>
-          <input className='movieName' type='text' placeholder='이미지 검색 ' onChange={onChangeHandler}/>
+      {/* <div className='search'>
+          <input className='bookName' type='text' placeholder='책 이름 ' onChange={onChangeHandler}/>
           <button className='searchBtn' onClick={()=>{setModal(!modal)}}>검색</button>
-          {modal&&<SearchMovieImg setMovieImg={setMovieImg} title={movieTitle}/>}
-      </div>
+          {modal&&<SearchBookList setTitle={setTitle} setdirector={setdirector} setActor={setActor} setBookImg={setBookImg} title={bookName}/>}
+      </div> */}
       <div className='detailTitle'><input type='text' name='movieTitle' style={{'width': 'auto', 'textAlign' : 'center', border: '1px solid gray'}} defaultValue={title} onChange={onTitleHandler}/></div>
       <Rate onChange={setRate} value={rate}/>
       <div className='detailBody'>
         <div className='detailBtnZone'><button className='detailBtn' onClick={onSaveHandler}>저장</button></div>
         <div className='detailInfo'>
-          <img className="movieImage" alt="Movie Poster" src={movieImg} />
+          <img className="bookImage" alt="Movie Poster" src={movieImg} />
           <div className="detailTable">
           <Descriptions column={2} labelStyle={{
             'border' : 'none',

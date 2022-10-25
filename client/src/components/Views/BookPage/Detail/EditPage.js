@@ -120,4 +120,4 @@ function EditPage() {
   )
 }
 
-export default auth(EditPage,true)
+export default auth(EditPage)
