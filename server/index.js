@@ -1,11 +1,18 @@
 const express = require('express');
 const app = express();
-const port = 5000;
+require("dotenv/config");
+const PORT = process.env.PORT || 5000;
+const config = require('./config/key');
 const mongoose = require('mongoose');
 const config = require('./config/key')
 const cookieParser = require('cookie-parser')
 
 app.use(cookieParser())
+app.use(express.static(path.join(__dirname, "../client/build")));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+});
+
 
 //body-parser 기능
 app.use(express.json());
@@ -24,7 +31,7 @@ mongoose.connect(config.mongoURI,{
 })
 
 
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log('nice to meet you!')
 })
 
